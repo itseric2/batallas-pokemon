@@ -96,7 +96,7 @@ def espadachin():
         "Nombre": "espadachin",
         "vidae": random.randint(200, 400),
         "slash": 30,
-        "corte_vertical": 50,
+        "corte_vertical": 60,
         "triple_slash":90 ,
         "desenvaine_rapido": 70,
         "doble_corte": 120,
@@ -155,48 +155,114 @@ def invocador():
         "nivel6":6
     }
     invocador["danoi"] = invocador[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija","Hidra"])]
-    invocador["niveles"]= invocador[random.choice(["nivel1","nivel2","nivel3""nivel4","nivel5","nivel6"])]
+    invocador["niveles"]= invocador[random.choice(["nivel1","nivel2","nivel3","nivel4","nivel5","nivel6"])]
     return invocador        
 
 print()
 enemigo1 = espadachin()
+enemigo2 = mago()
+enemigo3 = berserk()
+enemigo4 = invocador()
+bool_value = True
 print("Tu oponente sera:",enemigo1["Nombre"],"-nivel",enemigo1["niveles"])
+
 print("La vida del oponente es: ",enemigo1["vidae"])
 print()
-while cp == 1 :    
-    bool_value = True
-    print("Tu vida es: ",zeus["vida"])
-    print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
-    x=int(input("{ "))
-    if x == 1:
-        enemigo1["vidae"] -= zeus["fallo_rayo"]
-        if zeus["fallo_rayo"]== zeus["rayo_critico"]:
-            print("Has hecho un critico")
-        elif zeus["fallo_rayo"] == zeus["fallo"]:
-                print("¡Fallaste!")
-        print("Vida del oponente", enemigo1["vidae"])
-    elif x ==2:
-        enemigo1["vidae"]-=zeus["fallo_tormenta"]
-        if zeus["fallo_tormenta"] == zeus["fallo"]:
-                print("¡Fallaste!")
-        print("Vida del oponente", enemigo1["vidae"])
-    elif x ==3:
-        enemigo1["vidae"]-=zeus["Criatura_de_saturno"]
-        print("Vida del oponente", enemigo1["vidae"])
-    elif x ==4:
-        enemigo1["vidae"]-=zeus["Campo_electrico"]
-        print("Vida del oponente", enemigo1["vidae"])
-    elif x ==5:
-        enemigo1["vidae"]-=zeus["Control_del_clima"]        
-        print("Vida del oponente", enemigo1["vidae"])
-    elif x ==6:
-        enemigo1["vidae"]-=zeus["Dominio_de_energia"]
-        print("Vida del oponente", enemigo1["vidae"])
-    elif x ==7:
-        enemigo1["vidae"]-=zeus["rayo_curativo"]
-        print("Vida del oponente", enemigo1["vidae"])
-while cp == 2 :
+bool_value = True
+if cp == 1 :
+    if enemigo1["vidae"] > 0 :
+        while bool_value :
     
+            print("Tu vida es: ",zeus["vida"])
+            print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
+            x=int(input("{ "))
+            if x == 1:
+                enemigo1["vidae"] -= zeus["fallo_rayo"]
+                if zeus["fallo_rayo"]== zeus["rayo_critico"]:
+                    print("Has hecho un critico")
+                elif zeus["fallo_rayo"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente", enemigo1["vidae"])
+            elif x ==2:
+                enemigo1["vidae"]-=zeus["fallo_tormenta"]
+                if zeus["fallo_tormenta"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente", enemigo1["vidae"])
+            elif x ==3:
+                enemigo1["vidae"]-=zeus["fallo_criatura"]
+                if zeus["fallo_criatura"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente",enemigo1["vidae"])
+        
+            elif x ==4:
+                enemigo1["vidae"]-=zeus["fallo_campo"]
+                if zeus["fallo_campo"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente",enemigo1["vidae"])
+        
+            elif x ==5:
+                enemigo1["vidae"]-=zeus["falloco"]
+                if zeus["falloco"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente",enemigo1["vidae"])
+            elif x ==6:
+                enemigo1["vidae"]-=zeus["fallodo"]
+                if zeus["fallodo"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente",enemigo1["vidae"])
+            elif x ==7:
+                zeus["vida"] += 300
+                print("+300 vida")
+
+        
+            if enemigo1["niveles"] == enemigo1["nivel1"] :
+                enemigo1["danoe"] = enemigo1["danoe"] * 1
+            elif enemigo1["niveles"] == enemigo1["nivel2"] :
+                enemigo1["danoe"] = enemigo1["danoe"] * 2
+            daño = enemigo1["danoe"]
+            if daño == 30 or daño == 60 :
+                print("El oponente ha utilizado (slash) y te ha quitado",enemigo1["danoe"],"de vida")
+            elif daño == 60 or daño == 120:
+                print("El oponente ha utilizado (corte vertical) y te ha quitado",enemigo1["danoe"],"de vida")
+            elif daño == 0:
+                print("El enemigo ha fallado")
+            elif daño == 90 or daño == 180:
+                print("El oponente ha utilizado (triple slash) y te ha quitado",enemigo1["danoe"],"de vida")
+            elif daño == 70 or daño == 140:
+                print("El oponente ha utilizado (desenvaine rápido) y te ha quitado",enemigo1["danoe"],"de vida")
+            elif daño == 120 or daño == 240:
+                print("El oponente ha utilizado (doble corte) y te ha quitado",enemigo1["danoe"],"de vida")
+            elif daño == 100 or daño == 200:
+                print("El oponente ha hecho un corte perfecto y te a quitado",enemigo1["danoe"],"de vida")
+            elif daño == 85 or daño == 170:
+                print("El oponente ha utilizado la espada del rey y te ha quitado",enemigo1["danoe"],"de vida")
+            elif daño == 110 or daño == 220:
+                print("El oponente ha utilizado el haki del rey y te a quitado",enemigo1["danoe"],"de vida")
+            zeus["vida"] -= daño
+        
+        
+
+            zeus["copias"]=zeus[random.choice(["rayo","tormenta","rayo_curativo","Criatura_de_saturno","Campo_electrico","fallo","Control_del_clima","Dominio_de_energia"])]    
+            zeus["rayos"] = zeus[random.choice(["rayo", "rayo_critico"])]
+            zeus["fallo_rayo"] = zeus[random.choice(["rayos", "fallo"])]
+            zeus["fallo_tormenta"] = zeus[random.choice(["tormenta", "fallo"])]
+            zeus["fallo_criatura"] = zeus[random.choice(["Criatura_de_saturno", "fallo"])]
+            zeus["fallo_campo"] = zeus[random.choice(["Campo_electrico", "fallo"])]
+            zeus["fallodo"]= zeus[random.choice(["Dominio_de_energia","fallo"])]
+            zeus["falloco"]= zeus[random.choice(["Control_del_clima","fallo"])]
+            enemigo1["danoe"] = enemigo1[random.choice(["slash", "corte_vertical", "falloe", "triple_slash", "desenvaine_rapido", "doble_corte","corte_perfecto","espada_del_rey"])]
+
+            if zeus["vida"] <= 0:
+                print("¡Perdiste!")
+                bool_value = False
+    elif enemigo1["vidae"] <= 0:
+        print("¡Ganaste contra el espadachin!\n")
+        print("Tu siguiente oponente sera:",enemigo2["Nombre"],"-nivel",enemigo2["niveles"])
+        print("La vida del oponente es: ",enemigo2["vidam"])
+
+
+while cp == 2 :
+    print()
     print("La vida de Khonshu es: ",khonshu["vida"])
     print("Poderes\n1-Two Moons\n2-Meteoro Lunar\n3-Luna Llena\n4-Media Luna\n5-Moon Fall\n6-Piedras Lunares\n6-Oz Lunar\n7-Vida de otras lunas")
         
@@ -204,4 +270,5 @@ while cp == 3:
     print("La vida de Anubis es: ",anubis["vida"],"\n")
     print("Poderes\n1-Tumba del rey\n2-Ejercito de muertos\n3-Hacha de Muerte\n4-Apocalipsis Final\n5-Almas Perdidas\n6-Poder Prestado\n7-Muerte\n8-Oz de muerte\n9-Tomar vidas\n")
 
-x=int(input("{ "))
+print()
+print("Batalla finalizada")
