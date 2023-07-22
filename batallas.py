@@ -4,13 +4,13 @@ import random
 zeus= {
         "Nombre": "Zeus",
         "vida": random.randint(800, 1000),
-        "rayo": 40,
-        "tormenta": 50,
-        "rayo_critico": 80,
-        "Criatura_de_saturno": 70,
-        "Campo_electrico": 90,
+        "rayo": 60,
+        "tormenta": 80,
+        "rayo_critico": 120,
+        "Criatura_de_saturno": 100,
+        "Campo_electrico": 120,
         "Control_del_clima":140,
-        "Dominio_de_energia":1200,
+        "Dominio_de_energia":1700,
         "fallo": 0,
         "rayo_curativo":0        
     }
@@ -82,9 +82,9 @@ def berserk():
         "puño_de_hierro":90,
         "mi_sangre":100,
         "cuerpo_carmesi":125,
-        "nivel1":1,
-        "nivel2":2,
-        "nivel3":3,
+        "nivel1":2.5,
+        "nivel2":3,
+        "nivel3":3.5,
         "nivel4":4
     }
     berserk["danob"] = berserk[random.choice(["ira", "golpes", "fallob", "ola_golpeante", "Furia_berserker","puño_de_hierro","mi_sangre","cuerpo_carmesi"])]
@@ -104,7 +104,7 @@ def espadachin():
         "corte_perfecto":100,
         "espada_del_rey":85,
         "Haki_del_rey":110,
-        "nivel1":1,
+        "nivel1":1.5,
         "nivel2":2
                 
         
@@ -126,12 +126,11 @@ def mago():
         "esfera_carmesi":100,
         "esfera_oscura":110,
         "Dominio_del_mana":120,
-        "nivel1":1,
-        "nivel2":2,
-        "nivel3":3,
-        "copia":None
+        "nivel1":2,
+        "nivel2":2.5,
+        "nivel3":3
     }
-    mago["danom"] = mago[random.choice(["ataque_magico", "bestia_magica", "fallom","ataque_de_fuego","esfera_oceanica","esfera_carmesi","esfera_oscura","Dominio_del_mana","copia"])]
+    mago["danom"] = mago[random.choice(["ataque_magico", "bestia_magica", "fallom","ataque_de_fuego","esfera_oceanica","esfera_carmesi","esfera_oscura","Dominio_del_mana"])]
     mago["niveles"]= mago[random.choice(["nivel1","nivel2","nivel3"])]
     
     return mago
@@ -149,18 +148,20 @@ def invocador():
         "dragon":130,
         "Hidra":140,
         "falloi": 0,
-        "nivel1":1,
-        "nivel2":2,
-        "nivel3":3,
-        "nivel4":4,
+        "nivel1":3,
+        "nivel2":3.5,
+        "nivel3":4,
+        "nivel4":4.5,
         "nivel5":5,
         "nivel6":6
     }
-    invocador["danoi"] = invocador[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija","Hidra"])]
+    invocador["danoi"] = invocador[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija_multiple","Hidra"])]
     invocador["niveles"]= invocador[random.choice(["nivel1","nivel2","nivel3","nivel4","nivel5","nivel6"])]
     return invocador        
 
 print()
+
+#   ENEMIGOS Y VARIABLE DE BUCLE
 enemigo1 = espadachin()
 enemigo2 = mago()
 enemigo3 = berserk()
@@ -168,7 +169,68 @@ enemigo4 = invocador()
 bool_value = True
 bool_valuem = True
 bool_valueb = True
-print("Tu oponente sera:",enemigo1["Nombre"],"-nivel",enemigo1["niveles"])
+bool_valuei = True
+
+
+#  NIVELES
+nivele1 = 0
+nivele2 = 0
+nivele3 = 0
+nivele4 = 0
+#  NIVELES ESPADACHIN
+if enemigo1["niveles"] == enemigo1["nivel1"]:
+    nivele1 = 1
+elif enemigo1["niveles"] == enemigo1["nivel2"]:
+    nivele1 = 2
+#  NIVELES MAGO
+if enemigo2["niveles"] == enemigo2["nivel1"]:
+    nivele2 = 1
+elif enemigo2["niveles"] == enemigo2["nivel2"]:
+    nivele2 = 2
+elif enemigo2["niveles"] == enemigo2["nivel3"]:
+    nivele2 = 3
+#  NIVELES BERSERK
+if enemigo3["niveles"] == enemigo3["nivel1"]:
+    nivele3 = 1
+elif enemigo3["niveles"] == enemigo3["nivel2"]:
+    nivele3 = 2
+elif enemigo3["niveles"] == enemigo3["nivel3"]:
+    nivele3 = 3
+elif enemigo3["niveles"] == enemigo3["nivel4"]:
+    nivele3 = 4
+#  NIVELES INVOCADOR
+if enemigo4["niveles"] == enemigo4["nivel1"]:
+    nivele4 = 1
+elif enemigo4["niveles"] == enemigo4["nivel2"]:
+    nivele4 = 2
+elif enemigo4["niveles"] == enemigo4["nivel3"]:
+    nivele4 = 3
+elif enemigo4["niveles"] == enemigo4["nivel4"]:
+    nivele4 = 4
+elif enemigo4["niveles"] == enemigo4["nivel5"]:
+    nivele4 = 5
+elif enemigo4["niveles"] == enemigo4["nivel6"]:
+    nivele4 = 6
+
+
+#  MULTIPLICADOR DEL ENEMIGO
+daño = enemigo1["danoe"]
+daño *= enemigo1["niveles"]
+
+dañom = enemigo2["danom"]
+dañom *= enemigo2["niveles"]
+enemigo2["coraza_magica"] *= enemigo2["niveles"]
+enemigo2["vidam"] += enemigo2["coraza_magica"]
+
+dañob = enemigo3["danob"]
+dañob *= enemigo3["niveles"]
+
+dañoi = enemigo4["danoi"]
+dañoi *= enemigo4["niveles"]
+
+#  ENEMIGOS ZEUS
+
+print("Tu oponente sera:",enemigo1["Nombre"],"-nivel",nivele1)
 
 print("La vida del oponente es: ",enemigo1["vidae"])
 print()
@@ -217,30 +279,27 @@ if cp == 1 :
                 zeus["vida"] += 300000
                 print("+300 vida")
 
-        
-            if enemigo1["niveles"] == enemigo1["nivel1"] :
-                enemigo1["danoe"] = enemigo1["danoe"] * 1.5
-            elif enemigo1["niveles"] == enemigo1["nivel2"] :
-                enemigo1["danoe"] = enemigo1["danoe"] * 2
-            daño = enemigo1["danoe"]
+            
+            
+            
             if daño == 45 or daño == 60 :
-                print("El oponente ha utilizado (slash) y te ha quitado",enemigo1["danoe"],"de vida")
+                print("El oponente ha utilizado (slash) y te ha quitado",daño,"de vida")
             elif daño == 90 or daño == 120:
-                print("El oponente ha utilizado (corte vertical) y te ha quitado",enemigo1["danoe"],"de vida")
+                print("El oponente ha utilizado (corte vertical) y te ha quitado",daño,"de vida")
             elif daño == 0:
                 print("El enemigo ha fallado")
             elif daño == 135 or daño == 180:
-                print("El oponente ha utilizado (triple slash) y te ha quitado",enemigo1["danoe"],"de vida")
+                print("El oponente ha utilizado (triple slash) y te ha quitado",daño,"de vida")
             elif daño == 105 or daño == 140:
-                print("El oponente ha utilizado (desenvaine rápido) y te ha quitado",enemigo1["danoe"],"de vida")
+                print("El oponente ha utilizado (desenvaine rápido) y te ha quitado",daño,"de vida")
             elif daño == 180 or daño == 240:
-                print("El oponente ha utilizado (doble corte) y te ha quitado",enemigo1["danoe"],"de vida")
+                print("El oponente ha utilizado (doble corte) y te ha quitado",daño,"de vida")
             elif daño == 150 or daño == 200:
-                print("El oponente ha hecho un corte perfecto y te a quitado",enemigo1["danoe"],"de vida")
+                print("El oponente ha hecho un corte perfecto y te a quitado",daño,"de vida")
             elif daño == 127.5 or daño == 170:
-                print("El oponente ha utilizado la espada del rey y te ha quitado",enemigo1["danoe"],"de vida")
+                print("El oponente ha utilizado la espada del rey y te ha quitado",daño,"de vida")
             elif daño == 165 or daño == 220:
-                print("El oponente ha utilizado el haki del rey y te a quitado",enemigo1["danoe"],"de vida")
+                print("El oponente ha utilizado el haki del rey y te a quitado",daño,"de vida")
             zeus["vida"] -= daño
         
         
@@ -262,7 +321,7 @@ if cp == 1 :
                 bool_value = False
     
     print("¡Ganaste contra el espadachin!\n")
-    print("Tu siguiente oponente sera:",enemigo2["Nombre"],"-nivel",enemigo2["niveles"])
+    print("Tu siguiente oponente sera:",enemigo2["Nombre"],"-nivel",nivele2)
     print("La vida del oponente es: ",enemigo2["vidam"])
     
     if enemigo2["vidam"] > 0 :
@@ -308,32 +367,28 @@ if cp == 1 :
             elif x ==7:
                 zeus["vida"] += 300
                 print("+300 vida")
-                
-            enemigo2["vidam"] += enemigo2["coraza_magica"]
-            print("Mago se a puesto una capa magica +",enemigo2["coraza_magica"])
-            if enemigo2["niveles"] == enemigo2["nivel1"] :
-                enemigo2["danom"] = enemigo2["danom"] * 2
-            elif enemigo2["niveles"] == enemigo2["nivel2"] :
-                enemigo2["danom"] = enemigo2["danom"] * 2.5
-            elif enemigo2["niveles"] == enemigo2["nivel3"] :
-                enemigo2["danom"] = enemigo2["danom"] * 3
-            dañom = enemigo2["danom"]
+            
+            print("Mago se a puesto una capa magica +",enemigo2["coraza_magica"])           
+
+
+                        
+
             if dañom == 80 or dañom == 100 or dañom == 120 :
-                print("El oponente ha utilizado (ataque magico) y te ha quitado",enemigo2["danom"],"de vida")
+                print("El oponente ha utilizado (ataque magico) y te ha quitado",dañom,"de vida")
             elif dañom == 100 or dañom == 125 or dañom == 150:
-                print("El oponente ha utilizado (bestia magica) y te ha quitado",enemigo2["danom"],"de vida")
+                print("El oponente ha utilizado (bestia magica) y te ha quitado",dañom,"de vida")
             elif dañom == 0:
                 print("El enemigo ha fallado")
             elif dañom == 140 or dañom == 175 or dañom == 210 :
-                print("El oponente ha utilizado (ataque de fuego) y te ha quitado",enemigo2["danom"],"de vida")
+                print("El oponente ha utilizado (ataque de fuego) y te ha quitado",dañom,"de vida")
             elif dañom == 180 or dañom == 225 or dañom == 270:
-                print("El oponente ha utilizado (esfera oceanica) y te ha quitado",enemigo2["danom"],"de vida")
+                print("El oponente ha utilizado (esfera oceanica) y te ha quitado",dañom,"de vida")
             elif dañom == 200 or dañom == 250 or dañom == 300:
-                print("El oponente ha utilizado (esfera carmesi) y te ha quitado",enemigo2["danom"],"de vida")
+                print("El oponente ha utilizado (esfera carmesi) y te ha quitado",dañom,"de vida")
             elif dañom == 220 or dañom == 275 or dañom == 330:
-                print("El oponente ha utilizado (esfera oscura) y te a quitado",enemigo2["danom"],"de vida")
+                print("El oponente ha utilizado (esfera oscura) y te a quitado",dañom,"de vida")
             elif dañom == 240 or dañom == 300 or dañom == 360:
-                print("El oponente ha utilizado (dominio del mana) y te ha quitado",enemigo2["danom"],"de vida")
+                print("El oponente ha utilizado (dominio del mana) y te ha quitado",dañom,"de vida")
               
             zeus["vida"] -= dañom
             zeus["copias"]=zeus[random.choice(["rayo","tormenta","rayo_curativo","Criatura_de_saturno","Campo_electrico","fallo","Control_del_clima","Dominio_de_energia"])]    
@@ -344,7 +399,10 @@ if cp == 1 :
             zeus["fallo_campo"] = zeus[random.choice(["Campo_electrico", "fallo"])]
             zeus["fallodo"]= zeus[random.choice(["Dominio_de_energia","fallo"])]
             zeus["falloco"]= zeus[random.choice(["Control_del_clima","fallo"])]
-            enemigo2["danom"] = enemigo2[random.choice(["ataque_magico", "bestia_magica", "fallom","ataque_de_fuego","esfera_oceanica","esfera_carmesi","esfera_oscura","Dominio_del_mana","copia"])]
+            enemigo2["danom"] = enemigo2[random.choice(["ataque_magico", "bestia_magica", "fallom","ataque_de_fuego","esfera_oceanica","esfera_carmesi","esfera_oscura","Dominio_del_mana"])]
+            
+
+            
             if zeus["vida"] <= 0:
                 print("¡Perdiste!")
                 bool_valuem = False
@@ -353,13 +411,13 @@ if cp == 1 :
     
 
     print("¡Ganaste contra el mago!\n")
-    print("Tu siguiente oponente sera:",enemigo3["Nombre"],"-nivel",enemigo3["niveles"])
+    print("Tu siguiente oponente sera:",enemigo3["Nombre"],"-nivel",nivele3)
     print("La vida del oponente es: ",enemigo3["vidab"])
             
     if enemigo3["vidab"] > 0 :
                 
         while bool_valueb :
-    
+            
             print("Tu vida es: ",zeus["vida"])
             print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
             x=int(input("{ "))
@@ -386,7 +444,7 @@ if cp == 1 :
                 if zeus["fallo_campo"] == zeus["fallo"]:
                     print("¡Fallaste!")
                 print("Vida del oponente",enemigo2["vidam"])
-    
+        
             elif x ==5:
                 enemigo2["vidam"]-=zeus["falloco"]
                 if zeus["falloco"] == zeus["fallo"]:
@@ -401,33 +459,25 @@ if cp == 1 :
                 zeus["vida"] += 300
                 print("+300 vida")
 
-            if enemigo3["niveles"] == enemigo3["nivel1"] :
-                enemigo3["danob"] = enemigo3["danob"] * 2.5
-                    
-            elif enemigo3["niveles"] == enemigo3["nivel2"] :
-                enemigo3["danob"] = enemigo3["danob"] * 3
-                    
-            elif enemigo3["danob"] == enemigo3["nivel3"]:
-                enemigo3["danob"] = enemigo3["danob"] * 3.5
-            elif enemigo3["danob"] == enemigo3["nivel4"]:
-                enemigo3["danob"] == enemigo3["danob"] * 4
-            dañob = enemigo3["danob"]
+            
+            
+
             if dañob == 100 or dañob == 120 or dañob == 140 or dañob == 160:
-                print("El oponente ha utilizado (ira) y te ha quitado",enemigo3["danob"],"de vida")
+                print("El oponente ha utilizado (ira) y te ha quitado",dañob,"de vida")
             elif dañob == 125 or dañob == 150 or dañob == 175 or dañob == 200:
-                print("El oponente ha utilizado (golpes) y te ha quitado",enemigo3["danob"],"de vida")
+                print("El oponente ha utilizado (golpes) y te ha quitado",dañob,"de vida")
             elif dañob == 0:
                 print("El enemigo ha fallado")
             elif dañob == 150 or dañob == 180 or dañob == 210 or dañob == 240 :
-                print("El oponente ha utilizado (ola golpeante) y te ha quitado",enemigo3["danob"],"de vida")
+                print("El oponente ha utilizado (ola golpeante) y te ha quitado",dañob,"de vida")
             elif dañob == 187.5 or dañob == 225 or dañob == 262.5 or dañob == 300:
-                print("El oponente ha utilizado (furia berserker) y te ha quitado",enemigo3["danob"],"de vida")
+                print("El oponente ha utilizado (furia berserker) y te ha quitado",dañob,"de vida")
             elif dañob == 225 or dañob == 270 or dañob == 315 or dañob == 360:
-                print("El oponente ha utilizado (puño de hierro) y te ha quitado",enemigo3["danob"],"de vida")
+                print("El oponente ha utilizado (puño de hierro) y te ha quitado",dañob,"de vida")
             elif dañob == 250 or dañob == 300 or dañob == 350 or dañob == 400:
-                print("El oponente ha utilizado (sangre berserk) y te a quitado",enemigo3["danob"],"de vida")
+                print("El oponente ha utilizado (sangre berserk) y te a quitado",dañob,"de vida")
             elif dañob == 312.5 or dañob == 375 or dañob == 437.5 or dañob == 500:
-                print("El oponente ha utilizado (cuerpo carmesi) y te ha quitado",enemigo3["danob"],"de vida")
+                print("El oponente ha utilizado (cuerpo carmesi) y te ha quitado",dañob,"de vida")
 
             zeus["vida"] -= dañob
             zeus["copias"]=zeus[random.choice(["rayo","tormenta","rayo_curativo","Criatura_de_saturno","Campo_electrico","fallo","Control_del_clima","Dominio_de_energia"])]    
@@ -438,15 +488,73 @@ if cp == 1 :
             zeus["fallo_campo"] = zeus[random.choice(["Campo_electrico", "fallo"])]
             zeus["fallodo"]= zeus[random.choice(["Dominio_de_energia","fallo"])]
             zeus["falloco"]= zeus[random.choice(["Control_del_clima","fallo"])]
-            berserk["danob"] = berserk[random.choice(["ira", "golpes", "fallob", "ola_golpeante", "Furia_berserker","puño_de_hierro","mi_sangre","cuerpo_carmesi"])]
+            enemigo3["danob"] = enemigo3[random.choice(["ira", "golpes", "fallob", "ola_golpeante", "Furia_berserker","puño_de_hierro","mi_sangre","cuerpo_carmesi"])]
             if zeus["vida"] <= 0:
                 print("¡Perdiste!")
                 bool_valueb = False
             elif enemigo3["vidab"] <= 0:
                 bool_valueb = False
         
+    print("¡Ganaste contra el berserk!\n")
+    print("Tu siguiente oponente sera:",enemigo4["Nombre"],"-nivel",nivele4)
+    print("La vida del oponente es: ",enemigo4["vidai"])
     
+    if enemigo4["vidai"] > 0 :
+                
+        while bool_valuei :
     
+            print("Tu vida es: ",zeus["vida"])
+            print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
+            x=int(input("{ "))
+            if x == 1:
+                enemigo4["vidai"] -= zeus["fallo_rayo"]
+                if zeus["fallo_rayo"]== zeus["rayo_critico"]:
+                    print("Has hecho un critico")
+                elif zeus["fallo_rayo"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente", enemigo4["vidai"])
+            elif x ==2:
+                enemigo4["vidai"]-=zeus["fallo_tormenta"]
+                if zeus["fallo_tormenta"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente", enemigo4["vidai"])
+            elif x ==3:
+                enemigo4["vidai"]-=zeus["fallo_criatura"]
+                if zeus["fallo_criatura"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente",enemigo4["vidai"])
+        
+            elif x ==4:
+                enemigo4["vidai"]-=zeus["fallo_campo"]
+                if zeus["fallo_campo"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente",enemigo4["vidai"])
+    
+            elif x ==5:
+                enemigo4["vidai"]-=zeus["falloco"]
+                if zeus["falloco"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente",enemigo4["vidai"])
+            elif x ==6:
+                enemigo4["vidam"]-=zeus["fallodo"]
+                if zeus["fallodo"] == zeus["fallo"]:
+                    print("¡Fallaste!")
+                print("Vida del oponente",enemigo4["vidai"])
+            elif x ==7:
+                zeus["vida"] += 300
+                print("+300 vida")
+
+            
+            
+    
+
+
+
+
+
+
+
+
 
 while cp == 2 :
     print()
