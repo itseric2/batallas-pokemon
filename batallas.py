@@ -235,18 +235,25 @@ dañob *= enemigo3["niveles"]
 dañoi = enemigo4["danoi"]
 dañoi *= enemigo4["niveles"]
 
-#  ENEMIGOS ZEUS
-espadachinImage = climage.convert('pixil-frame-0.png', width=50)
+#  Representacion de enemigos
+espadachinImage = climage.convert("pixil-frame-0.png", width=50)
 berserkImage = climage.convert("berserker.png" , width=55)
-print("Tu oponente sera:",enemigo1["Nombre"],"-nivel",nivele1)
+magoImage = climage.convert("magito.png" , width=55)
+invocadorImage = climage.convert("invocador.png" , width=55)
 
+    
+
+# enemigos zeus
+print("Tu oponente sera:",enemigo1["Nombre"],"-nivel",nivele1)
 print("La vida del oponente es: ",enemigo1["vidae"])
 print()
 if cp == 1 :
+    1
     print(espadachinImage)
     if enemigo1["vidae"] > 0 :
         while bool_value :
-    
+            enemigo1["danoe"] = enemigo1[random.choice(["slash", "corte_vertical", "falloe", "triple_slash", "desenvaine_rapido", "doble_corte","corte_perfecto","espada_del_rey"])]
+
             print("Tu vida es: ",zeus["vida"])
             print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
             x=int(input("{ "))
@@ -285,7 +292,7 @@ if cp == 1 :
                     print("¡Fallaste!")
                 print("Vida del oponente",enemigo1["vidae"])
             elif x ==7:
-                zeus["vida"] += 300000
+                zeus["vida"] += 25000
                 print("+300 vida")
 
             
@@ -332,10 +339,13 @@ if cp == 1 :
     print("¡Ganaste contra el espadachin!\n")
     print("Tu siguiente oponente sera:",enemigo2["Nombre"],"-nivel",nivele2)
     print("La vida del oponente es: ",enemigo2["vidam"])
+    print(magoImage)
     
     if enemigo2["vidam"] > 0 :
+
         while bool_valuem :
-    
+            enemigo2["danom"] = enemigo2[random.choice(["ataque_magico", "bestia_magica", "fallom","ataque_de_fuego","esfera_oceanica","esfera_carmesi","esfera_oscura","Dominio_del_mana"])]
+            
             print("Tu vida es: ",zeus["vida"])
             print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
             x=int(input("{ "))
@@ -422,48 +432,48 @@ if cp == 1 :
     print("¡Ganaste contra el mago!\n")
     print("Tu siguiente oponente sera:",enemigo3["Nombre"],"-nivel",nivele3)
     print("La vida del oponente es: ",enemigo3["vidab"])
-            
+    print(berserkImage)
     if enemigo3["vidab"] > 0 :
-        print(berserkImage)
+        
         while bool_valueb :
-            
+            enemigo3["danob"] = enemigo3[random.choice(["ira", "golpes", "fallob", "ola_golpeante", "Furia_berserker","puño_de_hierro","mi_sangre","cuerpo_carmesi"])]
             print("Tu vida es: ",zeus["vida"])
             print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
             x=int(input("{ "))
             if x == 1:
-                enemigo2["vidam"] -= zeus["fallo_rayo"]
+                enemigo3["vidab"] -= zeus["fallo_rayo"]
                 if zeus["fallo_rayo"]== zeus["rayo_critico"]:
                     print("Has hecho un critico")
                 elif zeus["fallo_rayo"] == zeus["fallo"]:
                     print("¡Fallaste!")
-                print("Vida del oponente", enemigo2["vidam"])
+                print("Vida del oponente", enemigo3["vidab"])
             elif x ==2:
-                enemigo2["vidam"]-=zeus["fallo_tormenta"]
+                enemigo3["vidab"]-=zeus["fallo_tormenta"]
                 if zeus["fallo_tormenta"] == zeus["fallo"]:
                     print("¡Fallaste!")
-                print("Vida del oponente", enemigo2["vidam"])
+                print("Vida del oponente", enemigo3["vidab"])
             elif x ==3:
-                enemigo2["vidam"]-=zeus["fallo_criatura"]
+                enemigo3["vidab"]-=zeus["fallo_criatura"]
                 if zeus["fallo_criatura"] == zeus["fallo"]:
                     print("¡Fallaste!")
-                print("Vida del oponente",enemigo2["vidam"])
+                print("Vida del oponente",enemigo3["vidab"])
         
             elif x ==4:
-                enemigo2["vidam"]-=zeus["fallo_campo"]
+                enemigo3["vidab"]-=zeus["fallo_campo"]
                 if zeus["fallo_campo"] == zeus["fallo"]:
                     print("¡Fallaste!")
-                print("Vida del oponente",enemigo2["vidam"])
+                print("Vida del oponente",enemigo3["vidab"])
 
             elif x ==5:
-                enemigo2["vidam"]-=zeus["falloco"]
+                enemigo3["vidab"]-=zeus["falloco"]
                 if zeus["falloco"] == zeus["fallo"]:
                     print("¡Fallaste!")
-                print("Vida del oponente",enemigo2["vidam"])
+                print("Vida del oponente",enemigo3["vidab"])
             elif x ==6:
-                enemigo2["vidam"]-=zeus["fallodo"]
+                enemigo3["vidab"]-=zeus["fallodo"]
                 if zeus["fallodo"] == zeus["fallo"]:
                     print("¡Fallaste!")
-                print("Vida del oponente",enemigo2["vidam"])
+                print("Vida del oponente",enemigo3["vidab"])
             elif x ==7:
                 zeus["vida"] += 300
                 print("+300 vida")
@@ -507,11 +517,11 @@ if cp == 1 :
     print("¡Ganaste contra el berserk!\n")
     print("Tu siguiente oponente sera:",enemigo4["Nombre"],"-nivel",nivele4)
     print("La vida del oponente es: ",enemigo4["vidai"])
-    
+    print(invocadorImage)
     if enemigo4["vidai"] > 0 :
                 
         while bool_valuei :
-    
+            enemigo4["danoi"] = enemigo4[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija_multiple","Hidra"])]
             print("Tu vida es: ",zeus["vida"])
             print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
             x=int(input("{ "))
@@ -545,7 +555,7 @@ if cp == 1 :
                     print("¡Fallaste!")
                 print("Vida del oponente",enemigo4["vidai"])
             elif x ==6:
-                enemigo4["vidam"]-=zeus["fallodo"]
+                enemigo4["vidai"]-=zeus["fallodo"]
                 if zeus["fallodo"] == zeus["fallo"]:
                     print("¡Fallaste!")
                 print("Vida del oponente",enemigo4["vidai"])
@@ -580,29 +590,53 @@ if cp == 1 :
             zeus["fallo_campo"] = zeus[random.choice(["Campo_electrico", "fallo"])]
             zeus["fallodo"]= zeus[random.choice(["Dominio_de_energia","fallo"])]
             zeus["falloco"]= zeus[random.choice(["Control_del_clima","fallo"])]
-            invocador["danoi"] = invocador[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija_multiple","Hidra"])]
+            enemigo4["danoi"] = enemigo4[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija_multiple","Hidra"])]
+            enemigo4["danoi"] = enemigo4[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija_multiple","Hidra"])]
+            enemigo4["danoi"] = enemigo4[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija_multiple","Hidra"])]
             
             if zeus["vida"] <= 0:
                 print("¡Perdiste!")
-                bool_valueb = False
+                bool_valuei = False
             elif enemigo4["vidai"] <= 0:
-                bool_valueb = False
-    
+                bool_valuei = False
+    premio1 = ""
+    premio2 = ""
+    premio3 = ""
+    premio4 = ""
+    premio5 =""
+    premio6 = ""
+    premio7 = ""
+    premio8 = ""
+
+
     ganaste = pyfiglet.figlet_format("¡Felicitaciones Ganaste!")
     print(ganaste)
-    if zeus["vida"] >= 15000 or zeus["vida"] >= 15000:
-        premio = pyfiglet.figlet_format("Has ganado una medalla de Esmeralda")
-    if zeus["vida"] >= 12000 or zeus["vida"] >= 12000:
-        pyfiglet.figlet_format("Has ganado una medalla de Diamante")
-    if zeus["vida"] <= 8000 or zeus["vida"] >= 8000:
-        premio = pyfiglet.figlet_format("Has ganado una medalla de Platino")
-    if zeus["vida"] <= 5000 or zeus["vida"] >= 5000:
-        pyfiglet.figlet_format("Has ganado una medalla de Oro")
-    if zeus["vida"] <= 3000 or zeus["vida"] >= 3000:
-        premio = pyfiglet.figlet_format("Has ganado una medalla de Hierro")
-    if zeus["vida"] <= 1000 or zeus["vida"] >= 1000:
-        pyfiglet.figlet_format("Has ganado una medalla de Bronce")
-    
+    medallas = pyfiglet.figlet_format("Tus Medallas")
+    print(medallas)
+    if zeus["vida"] >= 25000 :
+        premio8 = climage.convert("Maestro.png", width=30)
+        print(premio8)
+    if zeus["vida"] >= 20000:
+        premio7 = climage.convert("Heroe.png", width=30)
+        print(premio7)
+    if zeus["vida"] >= 15000:
+        premio6 = climage.convert("Esmeralda.png", width=30)
+        print(premio6)
+    if zeus["vida"] >= 12000:
+        premio5 = climage.convert("Diamante.png", width=30)
+        print(premio5)
+    if zeus["vida"] >= 8000 :
+        premio4= climage.convert("Platino.png", width=30)
+        print(premio4)
+    if zeus["vida"] >= 5000:
+        premio3 = climage.convert("Oro.png", width=30)
+        print(premio3)
+    if zeus["vida"] >= 3000 :
+        premio2 = climage.convert("Hierro.png", width=30)
+        print(premio2)
+    if zeus["vida"] >= 1000:
+        premio1 = climage.convert("Bronce.png", width=30)
+        print(premio1)
     
         
     
