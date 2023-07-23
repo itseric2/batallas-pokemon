@@ -1,5 +1,5 @@
 #Batallas seguidas
-
+import climage
 import random
 zeus= {
         "Nombre": "Zeus",
@@ -64,10 +64,17 @@ anubis["falloap"]= anubis[random.choice(["Almas_perdidas","fallo"])]
 anubis["fallopp"]= anubis[random.choice(["Poder_prestado","fallo"])]
 anubis["fallomt"]= anubis[random.choice(["Muerte","fallo"])]
 anubis["fallooz"]= anubis[random.choice(["Oz_de_muerte","fallo"])]
-    
+
+
+
+import pyfiglet
+titulo = pyfiglet.figlet_format("Welcome to pokemon fights")
+print(titulo)
+
 print("1- Zeus\n2- Khonshu\n3- Anubis")
 cp = int(input("Elige tu personaje: "))
-
+while cp <= 0 or cp >=4 :
+    cp = int(input("Elige tu personaje: "))
 
 # Berserk
 def berserk():
@@ -139,14 +146,14 @@ def invocador():
     invocador = {
         "Nombre": "invocador",
         "vidai": random.randint(8000, 12000),
-        "perro_infernal": 40,
-        "duende":50,
-        "lagartija_multiple":60,
-        "ogro": 90,
-        "jabali":70,
-        "minotauro":110,
-        "dragon":130,
-        "Hidra":140,
+        "perro_infernal": 50,
+        "duende":60,
+        "lagartija_multiple":80,
+        "ogro": 100,
+        "jabali":90,
+        "minotauro":120,
+        "dragon":150,
+        "Hidra":200,
         "falloi": 0,
         "nivel1":3,
         "nivel2":3.5,
@@ -229,12 +236,14 @@ dañoi = enemigo4["danoi"]
 dañoi *= enemigo4["niveles"]
 
 #  ENEMIGOS ZEUS
-
+espadachinImage = climage.convert('pixil-frame-0.png', width=50)
+berserkImage = climage.convert("berserker.png" , width=55)
 print("Tu oponente sera:",enemigo1["Nombre"],"-nivel",nivele1)
 
 print("La vida del oponente es: ",enemigo1["vidae"])
 print()
 if cp == 1 :
+    print(espadachinImage)
     if enemigo1["vidae"] > 0 :
         while bool_value :
     
@@ -415,7 +424,7 @@ if cp == 1 :
     print("La vida del oponente es: ",enemigo3["vidab"])
             
     if enemigo3["vidab"] > 0 :
-                
+        print(berserkImage)
         while bool_valueb :
             
             print("Tu vida es: ",zeus["vida"])
@@ -444,7 +453,7 @@ if cp == 1 :
                 if zeus["fallo_campo"] == zeus["fallo"]:
                     print("¡Fallaste!")
                 print("Vida del oponente",enemigo2["vidam"])
-        
+
             elif x ==5:
                 enemigo2["vidam"]-=zeus["falloco"]
                 if zeus["falloco"] == zeus["fallo"]:
@@ -543,19 +552,62 @@ if cp == 1 :
             elif x ==7:
                 zeus["vida"] += 300
                 print("+300 vida")
+            
+            if dañoi == 150 or dañoi == 175 or dañoi == 200 or dañoi == 225 or dañoi == 250 or dañoi == 300 :
+                print("El oponente a invocado un perro infernal y te a quitado",dañoi)
+            elif dañoi == 180 or dañoi == 210 or dañoi == 240 or dañoi == 270 or dañoi == 300 or dañoi == 360 :
+                print("El oponente a invocado un duende y te a quitado",dañoi)
+            elif dañoi == 240 or dañoi == 280 or dañoi == 320 or dañoi == 360 or dañoi == 400 or dañoi == 480 :
+                print("El oponente a invocado multiples lagartijas de otro mundo y te a quitado",dañoi)
+            elif dañoi == 300 or dañoi == 350 or dañoi == 400 or dañoi == 450 or dañoi == 500 or dañoi == 600 :
+                print("El oponente a invocado un ogro y te a quitado",dañoi)
+            elif dañoi == 270 or dañoi == 315 or dañoi == 360 or dañoi == 405 or dañoi == 450 or dañoi == 540 :
+                print("El oponente a invocado un jabali y te a quitado",dañoi)
+            elif dañoi == 360 or dañoi == 420 or dañoi == 480 or dañoi == 540 or dañoi == 600 or dañoi == 720 :
+                print("El oponente a invocado un minotauro y te a quitado",dañoi)
+            elif dañoi == 450 or dañoi == 525 or dañoi == 600 or dañoi == 675 or dañoi == 750 or dañoi == 900 :
+                print("El oponente a invocado un dragon y te a quitado",dañoi)
+            elif dañoi == 600 or dañoi == 700 or dañoi == 800 or dañoi == 900 or dañoi == 1000 or dañoi == 1200 :
+                print("El oponente a invocado una hidra y te a quitado",dañoi)
 
+
+            zeus["vida"] - dañoi
+            zeus["copias"]=zeus[random.choice(["rayo","tormenta","rayo_curativo","Criatura_de_saturno","Campo_electrico","fallo","Control_del_clima","Dominio_de_energia"])]    
+            zeus["rayos"] = zeus[random.choice(["rayo", "rayo_critico"])]
+            zeus["fallo_rayo"] = zeus[random.choice(["rayos", "fallo"])]
+            zeus["fallo_tormenta"] = zeus[random.choice(["tormenta", "fallo"])]
+            zeus["fallo_criatura"] = zeus[random.choice(["Criatura_de_saturno", "fallo"])]
+            zeus["fallo_campo"] = zeus[random.choice(["Campo_electrico", "fallo"])]
+            zeus["fallodo"]= zeus[random.choice(["Dominio_de_energia","fallo"])]
+            zeus["falloco"]= zeus[random.choice(["Control_del_clima","fallo"])]
+            invocador["danoi"] = invocador[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija_multiple","Hidra"])]
             
-            
+            if zeus["vida"] <= 0:
+                print("¡Perdiste!")
+                bool_valueb = False
+            elif enemigo4["vidai"] <= 0:
+                bool_valueb = False
     
-
-
-
-
-
-
-
-
-
+    ganaste = pyfiglet.figlet_format("¡Felicitaciones Ganaste!")
+    print(ganaste)
+    if zeus["vida"] >= 15000 or zeus["vida"] >= 15000:
+        premio = pyfiglet.figlet_format("Has ganado una medalla de Esmeralda")
+    if zeus["vida"] >= 12000 or zeus["vida"] >= 12000:
+        pyfiglet.figlet_format("Has ganado una medalla de Diamante")
+    if zeus["vida"] <= 8000 or zeus["vida"] >= 8000:
+        premio = pyfiglet.figlet_format("Has ganado una medalla de Platino")
+    if zeus["vida"] <= 5000 or zeus["vida"] >= 5000:
+        pyfiglet.figlet_format("Has ganado una medalla de Oro")
+    if zeus["vida"] <= 3000 or zeus["vida"] >= 3000:
+        premio = pyfiglet.figlet_format("Has ganado una medalla de Hierro")
+    if zeus["vida"] <= 1000 or zeus["vida"] >= 1000:
+        pyfiglet.figlet_format("Has ganado una medalla de Bronce")
+    
+    
+        
+    
+            
+                   
 while cp == 2 :
     print()
     print("La vida de Khonshu es: ",khonshu["vida"])
