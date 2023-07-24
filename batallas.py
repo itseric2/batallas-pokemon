@@ -31,7 +31,7 @@ zeus["falloco"]= zeus[random.choice(["Control_del_clima","fallo"])]
 khonshu= {
     "Nombre":"Khonshu",
     "vida":random.randint(800, 2000),
-    "Two_moons":28000,
+    "Two_moons":280,
     "Meteoro_lunar":130,
     "Luna_llena":140,
     "Media_luna":70,
@@ -44,6 +44,7 @@ khonshu= {
     "Quad_moons":560,
     "lluvia_lunar":1300
     }
+
 khonshu["fallot"]= khonshu[random.choice(["Two_moons","fallo","Two_moons","fallo","Two_moons","fallo","Two_moons","fallo","Two_moons","fallo","Two_moons","fallo","Quad_moons"])]
 khonshu["fallome"]= khonshu[random.choice(["Meteoro_lunar","fallo","Meteoro_lunar","fallo","Meteoro_lunar","fallo","Meteoro_lunar","fallo","Meteoro_lunar","fallo","Meteoro_lunar","fallo","lluvia_lunar"])]
 khonshu["fallol"]= khonshu[random.choice(["Luna_llena","fallo"])]
@@ -68,6 +69,7 @@ anubis= {
     "Doble_oz":700,
     "lluvia_de_muerte":4000
     }
+
 anubis["fallotr"]= anubis[random.choice(["Tumba_del_rey","fallo"])]
 anubis["falloem"]= anubis[random.choice(["Ejercito_de_muertos","fallo"])]
 anubis["fallohm"]= anubis[random.choice(["Hacha_de_muerte","fallo","Hacha_de_muerte","fallo","Hacha_de_muerte","fallo","Hacha_de_muerte","fallo","Hacha_de_muerte","fallo","triple_hacha"])]
@@ -264,7 +266,7 @@ if cp == 1 :
             enemigo1["danoe"] = enemigo1[random.choice(["slash", "corte_vertical", "falloe", "triple_slash", "desenvaine_rapido", "doble_corte","corte_perfecto","espada_del_rey"])]
 
             print("Tu vida es: ",zeus["vida"])
-            print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
+            print("Poderes\n1-Rayo (60 daño) \n2-Tormenta (80 daño) \n3-Criatura de saturno (100 daño) \n4-Campo electrico (120 daño) \n5-Control del clima (140 daño) \n6-Dominio de energia (160 daño) \n7-Rayo curativo (300 vida)")
             x=int(input("{ "))
             if x == 1:
                 enemigo1["vidae"] -= zeus["fallo_rayo"]
@@ -364,7 +366,7 @@ if cp == 1 :
             enemigo2["danom"] = enemigo2[random.choice(["ataque_magico", "bestia_magica", "fallom","ataque_de_fuego","esfera_oceanica","esfera_carmesi","esfera_oscura","Dominio_del_mana"])]
             
             print("Tu vida es: ",zeus["vida"])
-            print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
+            print("Poderes\n1-Rayo (60 daño) \n2-Tormenta (80 daño) \n3-Criatura de saturno (100 daño) \n4-Campo electrico (120 daño) \n5-Control del clima (140 daño) \n6-Dominio de energia (160 daño) \n7-Rayo curativo (300 vida)")
             x=int(input("{ "))
             if x == 1:
                 enemigo2["vidam"] -= zeus["fallo_rayo"]
@@ -463,7 +465,7 @@ if cp == 1 :
         while bool_valueb :
             enemigo3["danob"] = enemigo3[random.choice(["ira", "golpes", "fallob", "ola_golpeante", "Furia_berserker","puño_de_hierro","mi_sangre","cuerpo_carmesi"])]
             print("Tu vida es: ",zeus["vida"])
-            print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
+            print("Poderes\n1-Rayo (60 daño) \n2-Tormenta (80 daño) \n3-Criatura de saturno (100 daño) \n4-Campo electrico (120 daño) \n5-Control del clima (140 daño) \n6-Dominio de energia (160 daño) \n7-Rayo curativo (300 vida)")
             x=int(input("{ "))
             if x == 1:
                 enemigo3["vidab"] -= zeus["fallo_rayo"]
@@ -556,7 +558,7 @@ if cp == 1 :
         while bool_valuei :
             enemigo4["danoi"] = enemigo4[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija_multiple","Hidra"])]
             print("Tu vida es: ",zeus["vida"])
-            print("Poderes\n1-Rayo\n2-Tormenta\n3-Criatura de saturno\n4-Campo electrico\n5-Control del clima\n6-Dominio de energia\n7-Rayo curativo")
+            print("Poderes\n1-Rayo (60 daño) \n2-Tormenta (80 daño) \n3-Criatura de saturno (100 daño) \n4-Campo electrico (120 daño) \n5-Control del clima (140 daño) \n6-Dominio de energia (160 daño) \n7-Rayo curativo (300 vida)")
             x=int(input("{ "))
             if x == 1:
                 enemigo4["vidai"] -= zeus["fallo_rayo"]
@@ -695,7 +697,8 @@ while cp == 2 :
         while bool_value :
             enemigo1["danoe"] = enemigo1[random.choice(["slash", "corte_vertical", "falloe", "triple_slash", "desenvaine_rapido", "doble_corte","corte_perfecto","espada_del_rey"])]
             print("La vida de Khonshu es: ",khonshu["vida"])
-            print("Poderes\n1-Two mooons\n2-Meteoro lunar\n3-Luna llena\n4-Media luna\n5-Moon fall\n6-piedras lunares\n7-Oz lunar\n8-Vida de otras lunas")
+            
+            print("Poderes\n1-Two mooons (280 daño)\n2-Meteoro lunar (130 daño)\n3-Luna llena (140 daño)\n4-Media luna (70 daño)\n5-Moon fall (150 daño)\n6-piedras lunares (120 daño)\n7-Oz lunar (200 daño)\n8-Vida de otras lunas(450 vida)")
             x=int(input("{ "))
             if x == 1:
                 enemigo1["vidae"] -= khonshu["fallot"]
@@ -787,7 +790,7 @@ while cp == 2 :
             enemigo2["danom"] = enemigo2[random.choice(["ataque_magico", "bestia_magica", "fallom","ataque_de_fuego","esfera_oceanica","esfera_carmesi","esfera_oscura","Dominio_del_mana"])]
             
             print("La vida de Khonshu es: ",khonshu["vida"])
-            print("Poderes\n1-Two mooons\n2-Meteoro lunar\n3-Luna llena\n4-Media luna\n5-Moon fall\n6-piedras lunares\n7-Oz lunar\n8-Vida de otras lunas")
+            print("Poderes\n1-Two mooons (280 daño)\n2-Meteoro lunar (130 daño)\n3-Luna llena (140 daño)\n4-Media luna (70 daño)\n5-Moon fall (150 daño)\n6-piedras lunares (120 daño)\n7-Oz lunar (200 daño)\n8-Vida de otras lunas(450 vida)")
             x=int(input("{ "))
             if x == 1:
                 enemigo2["vidam"] -= khonshu["fallot"]
@@ -880,7 +883,7 @@ while cp == 2 :
         while bool_valueb :
             enemigo3["danob"] = enemigo3[random.choice(["ira", "golpes", "fallob", "ola_golpeante", "Furia_berserker","puño_de_hierro","mi_sangre","cuerpo_carmesi"])]
             print("La vida de Khonshu es: ",khonshu["vida"])
-            print("Poderes\n1-Two mooons\n2-Meteoro lunar\n3-Luna llena\n4-Media luna\n5-Moon fall\n6-piedras lunares\n7-Oz lunar\n8-Vida de otras lunas")
+            print("Poderes\n1-Two mooons (280 daño)\n2-Meteoro lunar (130 daño)\n3-Luna llena (140 daño)\n4-Media luna (70 daño)\n5-Moon fall (150 daño)\n6-piedras lunares (120 daño)\n7-Oz lunar (200 daño)\n8-Vida de otras lunas(450 vida)")
             x=int(input("{ "))
             if x == 1:
                 enemigo3["vidab"] -= khonshu["fallot"] # Two moons
@@ -968,7 +971,7 @@ while cp == 2 :
         while bool_valuei :
             enemigo4["danoi"] = enemigo4[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija_multiple","Hidra"])]
             print("La vida de Khonshu es: ",khonshu["vida"])
-            print("Poderes\n1-Two mooons\n2-Meteoro lunar\n3-Luna llena\n4-Media luna\n5-Moon fall\n6-piedras lunares\n7-Oz lunar\n8-Vida de otras lunas")
+            print("Poderes\n1-Two mooons (280 daño)\n2-Meteoro lunar (130 daño)\n3-Luna llena (140 daño)\n4-Media luna (70 daño)\n5-Moon fall (150 daño)\n6-piedras lunares (120 daño)\n7-Oz lunar (200 daño)\n8-Vida de otras lunas(450 vida)")
             x=int(input("{ "))
             if x == 1:
                 enemigo4["vidai"] -= khonshu["fallot"]
@@ -1091,7 +1094,8 @@ while cp == 3:
             enemigo1["danoe"] = enemigo1[random.choice(["slash", "corte_vertical", "falloe", "triple_slash", "desenvaine_rapido", "doble_corte","corte_perfecto","espada_del_rey"])]
 
             print("La vida de Anubis es: ",anubis["vida"],"\n")
-            print("Poderes\n1-Tumba del rey\n2-Ejercito de muertos\n3-Hacha de Muerte\n4-Apocalipsis Final\n5-Almas Perdidas\n6-Poder Prestado\n7-Muerte\n8-Oz de muerte\n9-Tomar vidas\n")
+            
+            print("Poderes\n1-Tumba del rey(70 daño)\n2-Ejercito de muertos(80 daño)\n3-Hacha de Muerte(250 daño)\n4-Apocalipsis Final(60 daño)\n5-Almas Perdidas(40 daño)\n6-Poder Prestado(110)\n7-Muerte(400 daño)\n8-Oz de muerte(350 daño)\n9-Tomar vidas(600 vida)")
             x=int(input("{ "))
             if x == 1:
                 enemigo1["vidae"] -= anubis["fallotr"]
@@ -1189,7 +1193,7 @@ while cp == 3:
             enemigo2["danom"] = enemigo2[random.choice(["ataque_magico", "bestia_magica", "fallom","ataque_de_fuego","esfera_oceanica","esfera_carmesi","esfera_oscura","Dominio_del_mana"])]
             
             print("La vida de Anubis es: ",anubis["vida"],"\n")
-            print("Poderes\n1-Tumba del rey\n2-Ejercito de muertos\n3-Hacha de Muerte\n4-Apocalipsis Final\n5-Almas Perdidas\n6-Poder Prestado\n7-Muerte\n8-Oz de muerte\n9-Tomar vidas\n")
+            print("Poderes\n1-Tumba del rey(70 daño)\n2-Ejercito de muertos(80 daño)\n3-Hacha de Muerte(250 daño)\n4-Apocalipsis Final(60 daño)\n5-Almas Perdidas(40 daño)\n6-Poder Prestado(110)\n7-Muerte(400 daño)\n8-Oz de muerte(350 daño)\n9-Tomar vidas(600 vida)")
             x=int(input("{ "))
             if x == 1:
                 enemigo2["vidam"] -= anubis["fallotr"]
@@ -1285,7 +1289,7 @@ while cp == 3:
         while bool_valueb :
             enemigo3["danob"] = enemigo3[random.choice(["ira", "golpes", "fallob", "ola_golpeante", "Furia_berserker","puño_de_hierro","mi_sangre","cuerpo_carmesi"])]
             print("La vida de Anubis es: ",anubis["vida"],"\n")
-            print("Poderes\n1-Tumba del rey\n2-Ejercito de muertos\n3-Hacha de Muerte\n4-Apocalipsis Final\n5-Almas Perdidas\n6-Poder Prestado\n7-Muerte\n8-Oz de muerte\n9-Tomar vidas\n")
+            print("Poderes\n1-Tumba del rey(70 daño)\n2-Ejercito de muertos(80 daño)\n3-Hacha de Muerte(250 daño)\n4-Apocalipsis Final(60 daño)\n5-Almas Perdidas(40 daño)\n6-Poder Prestado(110)\n7-Muerte(400 daño)\n8-Oz de muerte(350 daño)\n9-Tomar vidas(600 vida)")
             x=int(input("{ "))
             
             if x == 1:
@@ -1380,7 +1384,7 @@ while cp == 3:
             enemigo4["danoi"] = enemigo4[random.choice(["perro_infernal", "ogro","jabali","minotauro","dragon","falloi","duende","lagartija_multiple","Hidra"])]
 
             print("La vida de Anubis es: ",anubis["vida"],"\n")
-            print("Poderes\n1-Tumba del rey\n2-Ejercito de muertos\n3-Hacha de Muerte\n4-Apocalipsis Final\n5-Almas Perdidas\n6-Poder Prestado\n7-Muerte\n8-Oz de muerte\n9-Tomar vidas\n")
+            print("Poderes\n1-Tumba del rey(70 daño)\n2-Ejercito de muertos(80 daño)\n3-Hacha de Muerte(250 daño)\n4-Apocalipsis Final(60 daño)\n5-Almas Perdidas(40 daño)\n6-Poder Prestado(110)\n7-Muerte(400 daño)\n8-Oz de muerte(350 daño)\n9-Tomar vidas(600 vida)")
             x=int(input("{ "))
             
             if x == 1:
